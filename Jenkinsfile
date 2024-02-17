@@ -31,7 +31,7 @@ pipeline {
         stage('Stage 5 - CREATE BUILD') {
             steps {
                 echo "Creating a build"
-                bat "mvn clean package"
+                bat "mvn package"
             }
         }
     }
