@@ -13,19 +13,19 @@ pipeline {
         }
         stage('Stage 2 - COMPILE CODE') {
             steps {
-                bat "mvn clean compile"
+                bat "mvn compile"
             }
         }
         stage('Stage 3 - UNIT TEST') {
             steps {
                 echo "Running Unit Test"
-                bat "mvn clean test"
+                bat "mvn test"
             }
         }
         stage('Stage 4 - INTEGRATION TEST') {
             steps {
                 echo "Running Integration Test"
-                bat "mvn clean integration-test"
+                bat "mvn integration-test"
             }
         }
         stage('Stage 5 - CREATE BUILD') {
