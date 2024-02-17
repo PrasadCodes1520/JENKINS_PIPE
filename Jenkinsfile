@@ -2,30 +2,35 @@ pipeline {
     agent any
     tools {
         maven "maven_home"
-        jdk "Jdk_home"
     }
     stages {
-        stage('Stage 1 - Checkout Code') {
-            steps {
-                echo 'Hi, this is the first pipeline with Maven'
-            }
-        }
-        stage('Stage 2 - Compile Code') {
+        stage('Stage 1 - INITIALIZATION') {
             steps {
                 input('Do you want to proceed?')
-                bat "mvn compile"
+                echo 'THIS IS THE DEMO OF MAVEN PIPELINE USING JENKINS'
             }
         }
-        stage('Stage 3 - Run Unit Test') {
+        stage('Stage 2 - COMPILE CODE') {
+            steps {
+                bat "mvn clean compile"
+            }
+        }
+        stage('Stage 3 - UNIT TEST') {
             steps {
                 echo "Running Unit Test"
-                bat "mvn test"
+                bat "mvn clean test"
             }
         }
-        stage('Stage 4 - Create Build') {
+        stage('Stage 4 - INTEGRATION TEST') {
+            steps {
+                echo "Running Integration Test"
+                bat "mvn clean integration-test"
+            }
+        }
+        stage('Stage 5 - CREATE BUILD') {
             steps {
                 echo "Creating a build"
-                bat "mvn package"
+                bat "mvn clean package"
             }
         }
     }
