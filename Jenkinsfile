@@ -6,7 +6,6 @@ pipeline {
          stages {
                  stage('Stage 1 - Checkout Code') {
 		        steps {
-			        git 'https://github.com/PrasadCodes1520/maven-unit-and-integration-tests-master'
 			        echo 'Hi, this is first pipeline with maven'         
                  }
                  }
