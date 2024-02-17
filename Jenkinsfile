@@ -25,7 +25,7 @@ pipeline {
         stage('Stage 4 - INTEGRATION TEST') {
             steps {
                 echo "Running Integration Test"
-                bat "mvn integration-test"
+                bat "mvn verify"
             }
         }
         stage('Stage 5 - CREATE BUILD') {
